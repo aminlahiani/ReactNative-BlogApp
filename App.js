@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import ShowSreen from "./src/screens/ShowSreen";
 import IndexScreen from "./src/screens/IndexScreen";
+import { BlogProvider } from "./src/context/BlogContext";
 
 const Stack = createStackNavigator();
 
@@ -23,4 +24,10 @@ function App() {
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <BlogProvider>
+      <App />
+    </BlogProvider>
+  );
+};
