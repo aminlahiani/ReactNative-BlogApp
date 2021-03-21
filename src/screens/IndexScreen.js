@@ -20,7 +20,7 @@ console.log(props)
   return (
     <View>
       <Text>Index Screen</Text>
-      <Button title="Add Post" onPress={addBlogPost} />
+     
 
       <FlatList
         data={state}
@@ -44,8 +44,6 @@ console.log(props)
     </View>
   );
 };
-
-
 
 const styles = StyleSheet.create({
   row: {
