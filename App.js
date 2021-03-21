@@ -5,12 +5,13 @@ import ShowSreen from "./src/screens/ShowSreen";
 import IndexScreen from "./src/screens/IndexScreen";
 import { Provider } from "./src/context/BlogContext";
 import CreateScreen from "./src/screens/CreateScreen";
-import { TouchableOpacity , Image ,Button , Text} from "react-native";
-import { Feather } from '@expo/vector-icons';
+import { TouchableOpacity } from "react-native";
+import { EvilIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+
 const Stack = createStackNavigator();
 
 function App() {
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -18,22 +19,40 @@ function App() {
           name="Home"
           component={IndexScreen}
           options={({ navigation, route }) => ({
-            title: 'My home' ,
+            title: "My home",
             headerStyle: {
-              backgroundColor: '#a2a6ab',
+              backgroundColor: "#a2a6ab",
             },
-            headerTintColor: '#fff',
+            headerTintColor: "#fff",
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
             },
             headerRight: () => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Create')}
-              ><Feather name="plus" size={30} /></TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+                <Feather name="plus" size={30} />
+              </TouchableOpacity>
             ),
           })}
         />
-        <Stack.Screen name="Show" component={ShowSreen} />
+        <Stack.Screen
+          name="Show"
+          component={ShowSreen}
+          options={({ navigation, route }) => ({
+            title: "Show",
+            headerStyle: {
+              backgroundColor: "#a2a6ab",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerRight: () => (
+              <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+                <EvilIcons name="pencil" size={35} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
         <Stack.Screen name="Create" component={CreateScreen} />
       </Stack.Navigator>
     </NavigationContainer>
