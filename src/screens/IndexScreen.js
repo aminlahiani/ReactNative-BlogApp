@@ -12,7 +12,8 @@ import { Feather } from "@expo/vector-icons";
 
 import { useNavigation } from '@react-navigation/core';
 
-const IndexScreen = () => {
+const IndexScreen = (props) => {
+console.log(props)
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
   console.log(state);
   const navigation = useNavigation()
@@ -43,6 +44,8 @@ const IndexScreen = () => {
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   row: {
